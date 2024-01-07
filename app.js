@@ -1,13 +1,10 @@
 import express from 'express'
 import { Resend } from 'resend'
-import { config } from 'dotenv'
-
-config()
 
 const app = express()
 const port = process.env.PORT ?? 1234
 
-const resend = new Resend(process.env.API_KEY)
+const resend = new Resend('re_3TLxaXaH_DWKiKsndzcGQqFoxboaoEa25')
 
 app.use(express.json())
 
@@ -36,5 +33,3 @@ app.post('/send-email', async (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor Express escuchando en el puerto ${port}`)
 })
-
-export default app
