@@ -1,5 +1,6 @@
 import express from 'express'
 import { Resend } from 'resend'
+import { cors } from 'cors'
 
 const app = express()
 const port = process.env.PORT ?? 1234
@@ -7,6 +8,25 @@ const port = process.env.PORT ?? 1234
 const resend = new Resend('re_3TLxaXaH_DWKiKsndzcGQqFoxboaoEa25')
 
 app.use(express.json())
+app.use(cors({
+  origin: (origin, callback) => {
+    const ACCEPTED_ORIGINS = [
+      'https://my-portfolio-pi-swart.vercel.app/',
+      'http://localhost:1234',
+      'http://localhost:4321'
+    ]
+
+    if (ACCEPTED_ORIGINS.includes(origin)) {
+      return callback(null, true)
+    }
+
+    if (!origin) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Not allowed by CORS'))
+  }
+}))
 
 app.post('/send-email', async (req, res) => {
   try {
