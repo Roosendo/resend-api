@@ -2,7 +2,7 @@ import express from 'express'
 import { Resend } from 'resend'
 import cors from 'cors'
 
-const app = express()
+export const app = express()
 const port = process.env.PORT ?? 1234
 
 const resend = new Resend('re_3TLxaXaH_DWKiKsndzcGQqFoxboaoEa25')
@@ -58,5 +58,3 @@ app.post('/send-email', async (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor Express escuchando en el puerto ${port}`)
 })
-
-export default app
