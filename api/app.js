@@ -29,6 +29,10 @@ app.use(cors({
   }
 }))
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 app.post('/send-email', async (req, res) => {
   try {
     const { name, message } = req.body
