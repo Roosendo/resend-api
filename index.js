@@ -12,9 +12,10 @@ app.use(cors({
   origin: (origin, callback) => {
     const ACCEPTED_ORIGINS = [
       'https://my-portfolio-pi-swart.vercel.app',
-      'https://my-portfolio-pi-swart.vercel.app/es',
+      'https://my-portfolio-pi-swart.vercel.app/es/',
       'http://localhost:1234',
-      'http://localhost:4321'
+      'http://localhost:4321',
+      'http://localhost:4321/es/'
     ]
 
     if (ACCEPTED_ORIGINS.includes(origin)) {
