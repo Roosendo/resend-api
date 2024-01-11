@@ -2,7 +2,7 @@ import express from 'express'
 import { Resend } from 'resend'
 import cors from 'cors'
 
-export const app = express()
+const app = express()
 const port = process.env.PORT ?? 1234
 
 const resend = new Resend('re_3TLxaXaH_DWKiKsndzcGQqFoxboaoEa25')
